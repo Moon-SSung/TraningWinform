@@ -63,33 +63,56 @@ namespace BookRentalShop20
 
             string strUserId = string.Empty;
 
-            //DB연결, SQL 인젝션 해킹을 방지하기 위해서 아래와 같이 복잡하게 사용
-            using (SqlConnection conn = new SqlConnection(strConnString))
+            try
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand();  //Sql 명령문을 입력 받는 타입
-                cmd.Connection = conn;
-                cmd.CommandText = "select userID from userTbl" +    //쿼리문을 넣을 때 마지막 또는 처음에 꼭! 스페이스 넣어줘야함!
-                                    " Where userId = @userID" +   //'admin' 과 @userID가 동일
-                                    " And Password = @password";   //'12345' 과 @password가 동일
+                //DB연결, SQL 인젝션 해킹을 방지하기 위해서 아래와 같이 복잡하게 사용
+                using (SqlConnection conn = new SqlConnection(strConnString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand();  //Sql 명령문을 입력 받는 타입
+                    cmd.Connection = conn;
+                    cmd.CommandText = "select userID from userTbl" +    //쿼리문을 넣을 때 마지막 또는 처음에 꼭! 스페이스 넣어줘야함!
+                                        " Where userId = @userID" +   //'admin' 과 @userID가 동일
+                                        " And Password = @password";   //'12345' 과 @password가 동일
 
-                //ID 설정
-                SqlParameter parmUserId = new SqlParameter("@userID", System.Data.SqlDbType.VarChar, 12);//id속성 글자수를 12로 지정했음
-                parmUserId.Value = TxtUserID.Text;
-                cmd.Parameters.Add(parmUserId);
-                //Password 설정
-                SqlParameter parmPassword = new SqlParameter("@password", System.Data.SqlDbType.VarChar, 20);//password속성 글자수를 20로 지정했음
-                parmPassword.Value = TxtPassword.Text;
-                cmd.Parameters.Add(parmPassword);
+                    //ID 설정
+                    SqlParameter parmUserId = new SqlParameter("@userID", System.Data.SqlDbType.VarChar, 12);//id속성 글자수를 12로 지정했음
+                    parmUserId.Value = TxtUserID.Text;
+                    cmd.Parameters.Add(parmUserId);
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-                strUserId = reader["userID"].ToString();    //"userID"는 sql문의 userID 필드값이다.
+                    //Password 설정
+                    SqlParameter parmPassword = new SqlParameter("@password", System.Data.SqlDbType.VarChar, 20);//password속성 글자수를 20로 지정했음
+                    parmPassword.Value = TxtPassword.Text;
+                    cmd.Parameters.Add(parmPassword);
 
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    reader.Read();
+                    strUserId = reader["userID"] != null ? reader["userID"].ToString() : ""; //"userID"는 sql문의 userID 필드값이다.
 
-                MetroMessageBox.Show(this, "접속성공", "로그인");//Debuging할때 사용
-                Debug.WriteLine("On the Debug");
+                    if (strUserId != "") //로그인 성공했을 때
+                    {
+                        MetroMessageBox.Show(this, "접속성공", "로그인 성공");
+                        this.Close();   //로그인폼을 닫아줌
+                    }
+                    else // 로그인 실패했을 때
+                    {
+                        MetroMessageBox.Show(this, "접속실패", "로그인 실패",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    //Debug.WriteLine("On the Debug");
+                }
             }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this, $"Error : {ex.StackTrace}", "오류",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void LoginForm_Activated(object sender, EventArgs e)
+        {
+            //TxtUserID.Focus();
         }
     }
 }
