@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{DEF4B1A2-1F9E-45D4-851E-CB066ED5E90A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfVideo", "WpfVideo\WpfVideo.csproj", "{16233B14-583F-455A-A102-7C5783939BB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BikeShop", "BikeShop\BikeShop.csproj", "{236E77B2-4B7D-48A3-8EDC-BABDA4E8EF98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DEF4B1A2-1F9E-45D4-851E-CB066ED5E90A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEF4B1A2-1F9E-45D4-851E-CB066ED5E90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEF4B1A2-1F9E-45D4-851E-CB066ED5E90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEF4B1A2-1F9E-45D4-851E-CB066ED5E90A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16233B14-583F-455A-A102-7C5783939BB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16233B14-583F-455A-A102-7C5783939BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16233B14-583F-455A-A102-7C5783939BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16233B14-583F-455A-A102-7C5783939BB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{236E77B2-4B7D-48A3-8EDC-BABDA4E8EF98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{236E77B2-4B7D-48A3-8EDC-BABDA4E8EF98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{236E77B2-4B7D-48A3-8EDC-BABDA4E8EF98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{236E77B2-4B7D-48A3-8EDC-BABDA4E8EF98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {403CEFD8-BAB8-4A27-840B-892376394FA5}
+	EndGlobalSection
+EndGlobal

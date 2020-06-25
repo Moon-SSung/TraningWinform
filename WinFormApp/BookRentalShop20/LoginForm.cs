@@ -2,14 +2,12 @@
 using MetroFramework.Forms;
 using System;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace BookRentalShop20
 {
     public partial class LoginForm : MetroForm
     {
-        string strConnString = "Data Source=127.0.0.1;Initial Catalog=BookRentalshopDB;Persist Security Info=True;User ID=sa;Password=p@ssw0rd!";
         public LoginForm()
         {
             InitializeComponent();
@@ -66,7 +64,7 @@ namespace BookRentalShop20
             try
             {
                 //DB연결, SQL 인젝션 해킹을 방지하기 위해서 아래와 같이 복잡하게 사용
-                using (SqlConnection conn = new SqlConnection(strConnString))
+                using (SqlConnection conn = new SqlConnection(Commons.CONNSTRING))
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand();  //Sql 명령문을 입력 받는 타입
@@ -91,6 +89,7 @@ namespace BookRentalShop20
 
                     if (strUserId != "") //로그인 성공했을 때
                     {
+                        Commons.LOGINUSERID = strUserId;
                         MetroMessageBox.Show(this, "접속성공", "로그인 성공");
                         this.Close();   //로그인폼을 닫아줌
                     }

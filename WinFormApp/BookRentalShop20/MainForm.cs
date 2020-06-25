@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq.Expressions;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
@@ -60,6 +59,27 @@ namespace BookRentalShop20
 
         }
 
+        private void 회원관리MToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MemberForm form = new MemberForm();
+            InitChildForm(form, "회원 관리");
+        }
 
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            LblUserID.Text = Commons.LOGINUSERID;
+        }
+
+        private void 책관리BToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BooksForm form = new BooksForm();
+            InitChildForm(form, "책 관리");
+        }
+
+        private void 대여관리RToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RentalForm form = new RentalForm();
+            InitChildForm(form, "대여관리");
+        }
     }
 }

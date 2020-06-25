@@ -32,6 +32,11 @@
             this.MnuMain = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuItemDivMng = new System.Windows.Forms.ToolStripMenuItem();
             this.사용자관리UToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.회원관리MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.책관리BToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LblUserID = new System.Windows.Forms.Label();
+            this.대여관리RToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +55,10 @@
             // 
             this.MnuMain.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MnuItemDivMng,
-            this.사용자관리UToolStripMenuItem});
+            this.사용자관리UToolStripMenuItem,
+            this.회원관리MToolStripMenuItem,
+            this.책관리BToolStripMenuItem,
+            this.대여관리RToolStripMenuItem});
             this.MnuMain.Name = "MnuMain";
             this.MnuMain.Size = new System.Drawing.Size(107, 24);
             this.MnuMain.Text = "메인관리(&M)";
@@ -69,12 +77,52 @@
             this.사용자관리UToolStripMenuItem.Text = "사용자관리(&U)";
             this.사용자관리UToolStripMenuItem.Click += new System.EventHandler(this.사용자관리UToolStripMenuItem_Click);
             // 
+            // 회원관리MToolStripMenuItem
+            // 
+            this.회원관리MToolStripMenuItem.Name = "회원관리MToolStripMenuItem";
+            this.회원관리MToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.회원관리MToolStripMenuItem.Text = "회원관리(&M)";
+            this.회원관리MToolStripMenuItem.Click += new System.EventHandler(this.회원관리MToolStripMenuItem_Click);
+            // 
+            // 책관리BToolStripMenuItem
+            // 
+            this.책관리BToolStripMenuItem.Name = "책관리BToolStripMenuItem";
+            this.책관리BToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.책관리BToolStripMenuItem.Text = "책관리(&B)";
+            this.책관리BToolStripMenuItem.Click += new System.EventHandler(this.책관리BToolStripMenuItem_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(711, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 15);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "접속아이디 : ";
+            // 
+            // LblUserID
+            // 
+            this.LblUserID.AutoSize = true;
+            this.LblUserID.Location = new System.Drawing.Point(814, 32);
+            this.LblUserID.Name = "LblUserID";
+            this.LblUserID.Size = new System.Drawing.Size(0, 15);
+            this.LblUserID.TabIndex = 3;
+            // 
+            // 대여관리RToolStripMenuItem
+            // 
+            this.대여관리RToolStripMenuItem.Name = "대여관리RToolStripMenuItem";
+            this.대여관리RToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.대여관리RToolStripMenuItem.Text = "대여관리(&R)";
+            this.대여관리RToolStripMenuItem.Click += new System.EventHandler(this.대여관리RToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1024, 620);
+            this.Controls.Add(this.LblUserID);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -82,6 +130,7 @@
             this.Text = "Book-Rental Shop v1.0";
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -97,6 +146,11 @@
         private System.Windows.Forms.ToolStripMenuItem MnuMain;
         private System.Windows.Forms.ToolStripMenuItem MnuItemDivMng;
         private System.Windows.Forms.ToolStripMenuItem 사용자관리UToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 회원관리MToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblUserID;
+        private System.Windows.Forms.ToolStripMenuItem 책관리BToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 대여관리RToolStripMenuItem;
     }
 }
 
